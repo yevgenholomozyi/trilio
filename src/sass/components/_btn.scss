@@ -1,0 +1,49 @@
+.btn {
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    border-radius: 100px;
+    border: none;
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    position: relative;
+    color: $color-white;
+    overflow: hidden;
+    cursor: pointer;
+
+    & > * {
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        transition: all .2s;
+    }
+
+    &__visible {
+        padding: 2rem 7rem;
+    }
+
+    &__invisible {
+        position: absolute;
+        padding: 2rem 0;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: -100%; /* move exactly outside the elem */
+        transition: all .2s;
+    }
+
+    &:hover {
+        background-image: linear-gradient(to right, $color-primary-dark, $color-primary-light);
+    }
+
+    &:active {
+        outline: none;
+    }
+
+    &:hover  &__invisible {
+        top: 0;
+    }
+
+    &:hover  &__visible {
+        transform: translateY(100%);
+    }
+}
